@@ -1,22 +1,20 @@
 
 
 <template>
-    <div>
-        <h2>Homepage</h2>
-        <div v-for="story in stories" :key="story">
-        <router-link :to="{ path: '/story/' + story.data.id }"><h2>{{ story.data.title }}</h2></router-link>
-        <p>Type: {{ story.data.type }}</p>
-        <p>Link: {{ story.data.url }}</p>
-        <p>Score: {{ story.data.score }}</p>
-        </div>
-    </div>
+<div class="container">
+   <item v-for="story in stories" :key="story.data.id" :story="story"></item>
+ </div>
 </template>
 
 <script>
-import axios from 'axios' // the import mus tbe within the script tags!
+import axios from 'axios' // the import must be within the script tags!
+import Item from '@/components/Item'
 
 export default {
   name: 'Homepage',
+  components: {
+    'item': Item
+  },
   data: function () {
     return {
       err: '',
