@@ -1,16 +1,14 @@
 /*Most vue.js single page compenents follow this structure of
 html within template, core code in scripts, and css in style */
 <template>
-    <div class="pure-menu pure-menu-horizontal">
-        <div class="container">
-        <a href="#" class="pure-menu-heading pure-menu-link">Home</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">News</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sports</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Finance</a></li>
-        </ul>
-        </div>
-    </div>
+<div class="pure-menu pure-menu-horizontal">
+<div class="container">
+<router-link :to="{ path: '/' }" class="pure-menu-heading pure-menu-link">Home</router-link</a>
+<ul class="pure-menu-list">
+<li class="pure-menu-item"><router-link :to="{ path: '/new' }" class="pure-menu-link">New</router-link></li>
+</ul>
+</div>
+</div>
 </template>
 
 <script>
