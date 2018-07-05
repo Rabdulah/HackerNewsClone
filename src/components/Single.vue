@@ -3,13 +3,13 @@
   <h2>{{ story.title }}</h2>
          <p>Score: {{ story.score }}</p>
          <p>{{ story.url }}</p>
-         <div v-for="comment in comments" :key="comment">
+         <div v-for="comment in comments">
            <div class="comment-wrap">
                  <div class="comment-block">
-                     <p class="comment-text">{{ comment.text }}</p>
+                     <p class="comment-text" v-html="comment.text"></p>
                      <div class="bottom-comment">
                          <div class="comment-author">{{ comment.by }}</div>
-                         <div class="comment-date">{{ comment.time }}</div>
+                         <!--<div class="comment-date">{{ comment.time }}</div>-->
                      </div>
                  </div>
              </div>
@@ -28,7 +28,10 @@ export default {
       url: this.$route.params.id // because of vue-route being installed, we can use $route to give us the route paramameters
     }
   },
+
   created: function () {
+    // debugger
+    // console.log(this.$moment)
     axios.get('https://hacker-news.firebaseio.com/v0/item/' + this.url + '.json')
   .then(result => {
     this.story = result.data

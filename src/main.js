@@ -17,7 +17,7 @@ import {
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
-
+Vue.use(require('vue-moment'))
 Vue.use(Vuetify, {
   components: {
     VApp,
